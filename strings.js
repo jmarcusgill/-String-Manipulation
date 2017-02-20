@@ -1,40 +1,36 @@
-//Declaring variable from the HTML
-var userInput = document.getElementById("user-input")
+var userInput = document.getElementById("user-input");
 var submitButton = document.getElementById("submit-button")
-var output = document.getElementById("output")
+var outputDiv = document.getElementById("output")
 var testString = "";
 
-submitButton.addEventListener("click", outputString)
-window.addEventListener("keypress", checkEnter)
+submitButton.addEventListener("click", outputResults)
 
-//Function for the keypress
-function checkEnter (e) {
-  if (e.keyCode === 13) {
-    outputString();
+
+
+
+
+function reversal(string) {
+  return string.split("").reverse().join("");
+
+}
+
+function alphabits(string) {
+  return string.split("").sort().join("");
+}
+
+function palindrome(string) {
+  var stringReversed = string.split("").reverse().join("");
+  if (stringReversed === string) {
+   return "Your word is a palindrome"
+  } else {
+    return "Your word is NOT a palindrome"
   }
+}
+
+function outputResults() {
+  testString = userInput.value;
+  outputDiv.innerHTML += "<div>" + "Your word reversed: " + reversal(testString) + "</div>";
+  outputDiv.innerHTML += "<div>" + "Your word sorted: " + alphabits(testString) + "</div>";
+  outputDiv.innerHTML += "<div>" + palindrome(testString) + "</div>";
 };
 
-
-
-
-
-
-function reversal(userInput) {
-  return userInput.split("").reverse().join("");
-}
-
-function alphabits(userInput) {
- return userInput.split("").sort().join("")
-}
-
-function palindrome(userInput) {
-
-}
-
-
-function outputString() {
-  testString = userInput.value;
-    output.innerHTML += "<div>" + "your word reversed: " + reversal(testString) + "</div>";
-    output.innerHTML += "<div>" + "your word sorted: " + alphabits(testString) + "</div>";
-    palindrome(testString);
-}
