@@ -1,13 +1,18 @@
 var userInput = document.getElementById("user-input");
 var submitButton = document.getElementById("submit-button")
+var clearButton = document.getElementById("clear-button")
 var outputDiv = document.getElementById("output")
 var testString = "";
 
 submitButton.addEventListener("click", outputResults)
+clearButton.addEventListener("click", clearOutput)
 
 
 
-
+function clearOutput(string) {
+  outputDiv.innerHTML = "";
+  userInput.value = "";
+}
 
 function reversal(string) {
   return string.split("").reverse().join("");
